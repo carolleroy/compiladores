@@ -4,7 +4,6 @@ public class Tag {
         PRG = 256,
         BEG = 257,
         END = 258,
-        TYPE = 259,
         INT = 260,
         CHAR = 261,
         FLOAT = 262,
@@ -16,20 +15,25 @@ public class Tag {
         REPEAT = 268,
         UNTIL = 269,
         READ = 270,
-        WRITE = 271,
+        WRITE = 271;
 
     // Operadores compostos e especiais
     public final static int 
-        EQ = 288,
+        EQ = 288, // ==
         GE = 289, // >=
-        LE = 290,
+        LE = 290, // <=
         NE = 291, // !=
         AND = 292,
         OR = 293,
+
+        /*Colocamos o '=' aqui não por ser um símbolo composto
+        mas por ter uma função específica na gramática: fazer 
+        atribuição. Foi apenas uma decisão de implementação, 
+        não era necessário.*/
         ASSIGN = 294;
 
     // Outros tokens básicos
     public final static int 
-        NUM = 278,
-        ID = 279;
+        NUM = 278,      //constante numérica
+        ID = 279;       //identificador
 }
