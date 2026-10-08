@@ -11,6 +11,7 @@ public class Token {
     normalmente. */
     @Override
     public String toString() {
+        if (tag == -1) return "EOF";
         return tag < 256 ? "" + (char) tag : "" + tag;
     }
 }

@@ -14,8 +14,8 @@ public class Tag {
         DO = 267,
         REPEAT = 268,
         UNTIL = 269,
-        READ = 270,
-        WRITE = 271;
+        IN = 270,
+        OUT = 271;
 
     // Operadores compostos e especiais
     public final static int 
@@ -35,5 +35,8 @@ public class Tag {
     // Outros tokens básicos
     public final static int 
         NUM = 278,      //constante numérica
-        ID = 279;       //identificador
+        ID = 279,       //identificador
+        REAL = 280,     //constante real
+        CHAR_CONST = 281,
+        LITERAL = 282;
 }

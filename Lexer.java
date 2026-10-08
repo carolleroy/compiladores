@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Lexer {
     public static int line = 1; // contador de linhas
-    private char ch = ' ';      // caractere lido do arquivo
+    private int ch = ' ';       // caractere lido do arquivo
     private FileReader arquivo;
 
     //tabela de símbolos
@@ -31,8 +31,8 @@ public class Lexer {
         reserve(new Word("do", Tag.DO));
         reserve(new Word("repeat", Tag.REPEAT));
         reserve(new Word("until", Tag.UNTIL));
-        reserve(new Word("read", Tag.READ));
-        reserve(new Word("write", Tag.WRITE));
+        reserve(new Word("in", Tag.IN));
+        reserve(new Word("out", Tag.OUT));
         reserve(new Word("program", Tag.PRG));
         reserve(new Word("begin", Tag.BEG));
         reserve(new Word("end", Tag.END));
@@ -43,11 +43,11 @@ public class Lexer {
 
     /* Lê o próximo caractere do arquivo */
     private void readch() throws IOException {
-        ch = (char) arquivo.read();
+        ch = arquivo.read();
     }
 
     /* Lê o próximo caractere do arquivo e verifica se é igual a c */
-    private boolean readch(char c) throws IOException {
+    private boolean readch(int c) throws IOException {
         readch();
         if (ch != c) return false;
         ch = ' ';
@@ -56,12 +56,16 @@ public class Lexer {
 
     // Métodos que aceitam só ASCII, como a gramática
     // define: letter ::= [A-Za-z], digit ::= [0-9]
-    private boolean identificaLetra(char c) {
+    private boolean identificaLetra(int c) {
         return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
     }
 
-    private boolean identificaDigito(char c) {
+    private boolean identificaDigito(int c) {
         return c >= '0' && c <= '9';
+    }
+
+    private void erro(String mensagem) throws IOException {
+        throw new IOException("Erro lexico (linha " + line + "): " + mensagem);
     }
 
     public Token scan() throws IOException {
@@ -71,35 +75,25 @@ public class Lexer {
                 continue;
             } else if (ch == '\n') {
                 line++; // conta linhas
-            
-            // Tratamento de comentários multilinha {* ... *}
+            } else if (ch == -1) {
+                return new Token(-1);
+
+            // Tratamento de comentários multilinha { ... }
             } else if (ch == '{') {
                 int startLine = line;
                 readch();
-                if (ch == '*') {
-                    boolean fimComentario = false;
-                    while (!fimComentario) { 
-                        readch();
-                        if (ch == '\n') line++;
-                        if (ch == '*') {
-                            readch();
-                            if (ch == '}') {
-                                fimComentario = true;
-                            }
-                        }
-
-                        // file.read() devolve um int: o código do caractere 
-                        // lido, ou -1 quando o arquivo acabou. Ou seja, se achou um -1
-                        // significa que chegou ao fim do arquivo sem achar o 
-                        if (ch == (char) -1) {
-                            System.err.println("Erro lexico (linha " + startLine + "): comentario nao fechado.");
-                            break;
-                        }
+                while (ch != '}') {
+                    if (ch == -1) {
+                        throw new IOException("Erro lexico (linha " + startLine + "): comentario nao fechado.");
                     }
-                } else {
-                    // Se não for comentário, devolve a chave '{' como token se necessário
-                    return new Token('{');
+                    if (ch == '\n') line++;
+                    readch();
                 }
+            } else if (ch == '%') {
+                do {
+                    readch();
+                } while (ch != '\n' && ch != -1);
+                if (ch == '\n') line++;
             } else {
                 break;
             }
@@ -130,28 +124,74 @@ public class Lexer {
 
         // Números Inteiros
         if (identificaDigito(ch)) {
-            int valor = 0;
+            StringBuffer sb = new StringBuffer();
             do {
-
-                //Charactter.digit converte o número para a base decimal
-                //Ai, vai multiplicando por 10 e somando até chegar no número
-                //que queremos.
-                valor = 10 * valor + Character.digit(ch, 10);
-
+                sb.append((char) ch);
                 readch();
             } while (identificaDigito(ch));
-            return new Num(valor);
+
+            if (ch == '.') {
+                sb.append((char) ch);
+                readch();
+
+                if (!identificaDigito(ch)) {
+                    erro("constante real mal formada.");
+                }
+
+                do {
+                    sb.append((char) ch);
+                    readch();
+                } while (identificaDigito(ch));
+
+                return new Real(sb.toString());
+            }
+
+            return new Num(Integer.parseInt(sb.toString()));
+        }
+
+        // Literais entre aspas duplas
+        if (ch == '"') {
+            StringBuffer sb = new StringBuffer();
+            readch();
+
+            while (ch != '"') {
+                if (ch == '\n' || ch == -1) {
+                    erro("literal nao fechado.");
+                }
+                sb.append((char) ch);
+                readch();
+            }
+
+            ch = ' ';
+            return new Literal(sb.toString());
+        }
+
+        // Constantes de caractere entre aspas simples
+        if (ch == '\'') {
+            readch();
+            if (ch == '\n' || ch == -1 || ch == '\'') {
+                erro("constante de caractere mal formada.");
+            }
+
+            char value = (char) ch;
+            readch();
+            if (ch != '\'') {
+                erro("constante de caractere deve possuir apenas um caractere.");
+            }
+
+            ch = ' ';
+            return new CharConst(value);
         }
 
         // Identificadores e Palavras Reservadas
         if (identificaLetra(ch) || ch == '_') {
             StringBuffer sb = new StringBuffer();
             do {
-                sb.append(ch);
+                sb.append((char) ch);
                 readch();
             } while (identificaLetra(ch) || identificaDigito(ch) || ch == '_');
             
-            String s = sb.toString();
+            String s = sb.toString().toLowerCase();
             Word w = words.get(s);
             if (w != null) return w; // palavra já existe na HashTable (Reservada)
             
@@ -160,10 +200,14 @@ public class Lexer {
             return w;
         }
 
-        // Caracteres não especificados (pontuação isolada, etc.)
-        Token t = new Token(ch);
-        ch = ' ';
-        return t;
+        if (";,:(()+-*/".indexOf(ch) >= 0) {
+            Token t = new Token(ch);
+            ch = ' ';
+            return t;
+        }
+
+        erro("caractere invalido '" + (char) ch + "'.");
+        return new Token(-1);
     }
 
     public void printSymbolTable() {

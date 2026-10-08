@@ -1,0 +1,18 @@
+program
+  int: a, b;
+  float: resultado;
+  char: opcao;
+
+begin
+  % comentario de uma linha
+  { comentario
+    de mais de uma linha }
+  out("Digite o valor de a:");
+  in(a);
+  opcao = 'S';
+  b = 10;
+  resultado = 345.27;
+  if (a >= b && opcao != 'N') then
+    out("Processando");
+  end
+end
