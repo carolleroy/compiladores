@@ -131,6 +131,7 @@ public class Lexer {
 
 
         // Números Inteiros
+       // Números Inteiros
         if (identificaDigito(ch)) {
             StringBuffer sb = new StringBuffer();
             do {
@@ -151,12 +152,21 @@ public class Lexer {
                     readch();
                 } while (identificaDigito(ch));
 
+                // Verifica se há uma letra colada logo após o número real (ex: 1.5c)
+                if (identificaLetra(ch) || ch == '_') {
+                    erro("identificador mal formado (nao pode iniciar com numero).");
+                }
+
                 return new Real(sb.toString());
+            }
+
+            // Verifica se há uma letra colada logo após o número inteiro (ex: 1c)
+            if (identificaLetra(ch) || ch == '_') {
+                erro("identificador mal formado (nao pode iniciar com numero).");
             }
 
             return new Num(Integer.parseInt(sb.toString()));
         }
-
         // Literais entre aspas duplas
         if (ch == '"') {
             StringBuffer sb = new StringBuffer();

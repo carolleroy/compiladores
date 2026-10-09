@@ -1,18 +1,16 @@
 program
-  int: a, b;
-  float: resultado;
-  char: opcao;
-
+int: a, b;
+float: resultado;
+char: opcao;
 begin
-  % comentario de uma linha
-  { comentario
-    de mais de uma linha }
-  out("Digite o valor de a:");
-  in(a);
+  {* comentario de uma linha *}
+  write("Digite o valor de a:");
+  read(a);
   opcao = 'S';
   b = 10;
   resultado = 345.27;
   if (a >= b && opcao != 'N') then
-    out("Processando");
+    write("Processando");
   end
-end
+end.
+
