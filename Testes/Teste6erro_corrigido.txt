@@ -1,0 +1,5 @@
+program
+float: area_val;
+begin
+out("Teste com erro lexico");
+end

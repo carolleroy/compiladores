@@ -200,7 +200,7 @@ public class Lexer {
             return w;
         }
 
-        if (";,:(()+-*/".indexOf(ch) >= 0) {
+        if (";,:.(()+-*/%".indexOf(ch) >= 0) { //incluindo o ponto final 
             Token t = new Token(ch);
             ch = ' ';
             return t;
@@ -211,9 +211,9 @@ public class Lexer {
     }
 
     public void printSymbolTable() {
-        System.out.println("\n========================================");
+        System.out.println("\n-----------------------------------------");
         System.out.println("           TABELA DE SIMBOLOS           ");
-        System.out.println("========================================");
+        System.out.println("-----------------------------------------");
 
         Enumeration<String> keys = words.keys();
 
@@ -223,6 +223,6 @@ public class Lexer {
             System.out.println("Lexema: " + key + " \t| Tag: " + w.tag);
         }
 
-        System.out.println("========================================");
+        System.out.println("-----------------------------------------");
     }
 }
