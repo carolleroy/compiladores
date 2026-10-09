@@ -82,18 +82,26 @@ public class Lexer {
             } else if (ch == '{') {
                 int startLine = line;
                 readch();
-                while (ch != '}') {
-                    if (ch == -1) {
-                        throw new IOException("Erro lexico (linha " + startLine + "): comentario nao fechado.");
+                if (ch == '*') { // Confirma que abriu com {*
+                    readch();
+                    boolean fechou = false;
+                    while (ch != -1) {
+                        if (ch == '*') {
+                            readch();
+                            if (ch == '}') {
+                                fechou = true;
+                                readch(); // consome o '}'
+                                break;
+                            }
+                        } else {
+                            if (ch == '\n') line++;
+                            readch();
+                        }
                     }
-                    if (ch == '\n') line++;
-                    readch();
+                    if (!fechou) throw new IOException("Erro lexico (linha " + startLine + "): comentario nao fechado.");
+                } else {
+                    erro("caractere invalido '{'.");
                 }
-            } else if (ch == '%') {
-                do {
-                    readch();
-                } while (ch != '\n' && ch != -1);
-                if (ch == '\n') line++;
             } else {
                 break;
             }
@@ -191,7 +199,7 @@ public class Lexer {
                 readch();
             } while (identificaLetra(ch) || identificaDigito(ch) || ch == '_');
             
-            String s = sb.toString().toLowerCase();
+            String s = sb.toString();
             Word w = words.get(s);
             if (w != null) return w; // palavra já existe na HashTable (Reservada)
             
