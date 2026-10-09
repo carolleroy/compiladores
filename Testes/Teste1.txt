@@ -1,4 +1,4 @@
-
+programa teste1
 {*Calculo de perimetro e area*}
 
 base, altura : float;

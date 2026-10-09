@@ -12,9 +12,9 @@ public class Main {
             Lexer lexer = new Lexer(args[0]);
             Token token;
 
-            System.out.println("========================================");
+            System.out.println("-----------------------------------------");
             System.out.println("          SEQUENCIA DE TOKENS           ");
-            System.out.println("========================================");
+            System.out.println("-----------------------------------------");
 
             // Executa o analisador até o fim do arquivo (o FileReader retorna -1 / char 65535 ou similar ao acabar)
             do {
