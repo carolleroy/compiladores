@@ -12,6 +12,8 @@ public class Main {
             Lexer lexer = new Lexer(args[0]);
             Token token;
 
+            
+
             System.out.println("-----------------------------------------");
             System.out.println("          SEQUENCIA DE TOKENS           ");
             System.out.println("-----------------------------------------");
