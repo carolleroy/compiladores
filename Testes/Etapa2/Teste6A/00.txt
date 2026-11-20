@@ -1,0 +1,22 @@
+program completo
+begin
+ a,b = int;
+ x = float;
+ opc = char;
+ read(a);
+ b = -2 + 3 * 4 % 5;
+ x = a / 2.0;
+ opc = 'S';
+ while (a > b) && !(opc == 'N') do
+   a = a - 1
+ end;
+ repeat
+   b = b + 1;
+   if (a <= b) || (a != 0) then
+     write("ok")
+   else
+     write(x)
+   end
+ until (b >= a);
+ write((a == b))
+end.
