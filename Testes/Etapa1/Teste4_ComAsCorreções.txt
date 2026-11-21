@@ -1,0 +1,37 @@
+*** Erro lexico (linha 1): comentario nao fechado. ***
+ {* Teste4 do meu compilador 
+ 
+    pontuacao, pontuacaoMaxima, disponibilidade : inteiro; 
+    pontuacaoMinima : char; 
+ 
+begin 
+  pontuacaoMinima = 50; 
+  pontuacaoMaxima = 100; 
+  write("Pontuacao do candidato: "); 
+  read(pontuacao); 
+  write("Disponibilidade do candidato: "); 
+  read(disponibilidade); 
+ 
+   
+  while (pontuacao>0 && (pontuacao<=pontuacaoMaxima) do 
+
+*** Erro lexico (linha 16): caractere invalido 'ç'. ***
+*** Erro lexico (linha 16): caractere invalido 'ã'. ***
+     if ((pontuação > pontuacaoMinima) && (disponibilidade==1)) then 
+
+        write("Candidato aprovado. ") 
+     else     
+        write("Candidato reprovado. ") 
+     end 
+ 
+     write("Pontuacao do candidato: "); 
+     read(pontuacao); 
+
+*** Erro lexico (linha 24): literal nao fechado. ***
+     write("Disponibilidade do  
+              candidato: "); 
+              
+     read(disponibilidade); 
+ 
+  end 
+end 

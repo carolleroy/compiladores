@@ -1,3 +1,6 @@
+// Subclasse que identifica um valor numérico inteiro
+// Bem útil para a etapa 3.
+
 public class Num extends Token {
     public final int value;
 

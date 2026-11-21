@@ -1,0 +1,40 @@
+ {* Teste4 do meu compilador *}
+ 
+ *** Erro Sintatico (linha 3): Token inesperado pontuacao. Token que era esperado: 'program'. Encontrado: 'pontuacao'. ***
+ *** Erro Sintatico (linha 5): Token inesperado pontuacao. Token que era esperado: 'begin'. Encontrado: 'pontuacao'. ***
+ *** Erro Sintatico (linha 7): Token inesperado :. Token que era esperado: '='. Encontrado: ':'. ***
+ *** Erro Sintatico (linha 7): Tipo invalido em declaracao de variavel. Encontrado: 'inteiro'. ***
+    pontuacao, pontuacaoMaxima, disponibilidade : inteiro; 
+
+*** Erro Sintatico (linha 8): Esperado ',' ou '='. Encontrado: ':'. ***
+    pontuacaoMinima : char; 
+ 
+begin 
+  pontuacaoMinima = 50; 
+  pontuacaoMaxima = 100; 
+  write("Pontuacao do candidato: "); 
+  read(pontuacao); 
+  write("Disponibilidade do candidato: "); 
+  read(disponibilidade); 
+ 
+
+*** Erro Sintatico (linha 18): Token inesperado do. Token que era esperado: ')'. Encontrado: 'do'. ***
+  while (pontuacao>0 && (pontuacao<=pontuacaoMaxima) do 
+
+     if ((pontuacao > pontuacaoMinima) && (disponibilidade==1)) then 
+        write("Candidato aprovado. ") 
+
+*** Erro Sintatico (linha 21): Comando invalido ou inesperado. Encontrado: 'else'. ***
+     else     
+
+        write("Candidato reprovado. ") 
+     end 
+ 
+     write("Pontuacao do candidato: "); 
+     read(pontuacao); 
+     write("Disponibilidade do candidato: "); 
+     read(disponibilidade); 
+
+*** Erro Sintatico (linha 30): Comando invalido ou inesperado. Encontrado: 'end'. ***
+  end 
+end 

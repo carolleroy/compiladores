@@ -8,8 +8,8 @@ public class Main {
             return;
         }
 
-        try (LexerEtapa2 lexer = new LexerEtapa2(args[0])) {
-            new ParserEtapa2(lexer).program();
+        try (Lexer lexer = new Lexer(args[0])) {
+            new Parser(lexer).program();
             System.out.println("Analise sintatica concluida com SUCESSO!");
         } catch (IOException | SyntaxException e) {
             System.err.println(e.getMessage());

@@ -1,0 +1,22 @@
+{* Teste 7: fatorial de um numero entre 0 e 12 *}
+program fatorial
+begin
+   n, i, fat, x2 = int;
+   resp = char;
+   write("Digite um numero: ");
+   read(n);
+   if (n < 0) || (n > 12) then
+      write("Numero fora do intervalo")
+   else
+      fat = 1;
+      i = 1;
+      while (i <= n) do
+         fat = fat * i;
+         i = i + 1
+      end;
+      write(fat)
+   end;
+   resp = 's';
+   fat = fat / 2;
+   resp = n
+end.

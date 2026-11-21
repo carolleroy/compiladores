@@ -1,0 +1,33 @@
+programa teste1 
+
+***Erro lexico (linha 2): comentario nao fechado.***
+{*Calculo de perimetro e area}   
+ 
+   base, altura : float; 
+   perimetro : float; 
+
+***Erro lexico (linha 6): identificador mal formado (nao pode iniciar com numero).***
+   area, 1a is float; 
+ 
+ 
+begin 
+ 
+  Write("Entre com a altura do retangulo:"); 
+  read(altura); 
+  write("Entre com a base do retangulo:"); 
+  read(base); 
+ 
+  area = base * altura; 
+  perimetro = 2*base + 2*altura; 
+ 
+ 
+  write "Area: "; 
+  write (area); 
+
+*** Erro lexico (linha 21): literal deve conter apenas caracteres ASCII. ***
+  write ("Perímetro: "); 
+
+  write (area); 
+ 
+ 
+end.

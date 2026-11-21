@@ -1,0 +1,29 @@
+*** Erro Sintatico (linha 1): Token inesperado a. Token que era esperado: 'program'. Encontrado: 'a' ***
+*** Erro Sintatico (linha 2): Token inesperado ,. Token que era esperado: 'begin'. Encontrado: ','. ***
+*** Erro Sintatico (linha 4): Token inesperado :. Token que era esperado: '='. Encontrado: ':'. ***
+  a, aux : int; 
+
+*** Erro Sintatico (linha 5): Esperado ',' ou '='. Encontrado: ':'. ***
+*** Erro Sintatico (linha 7): Token inesperado b. Token que era esperado: ';'. Encontrado: 'b'. ***
+  b : float 
+ 
+  begin 
+     b = 0; 
+     read (a); 
+     read(b); 
+     if (a>b) then 
+       aux = b; 
+       b = a; 
+       a = aux 
+     end; 
+     write(a); 
+     write(b); 
+
+*** Erro Sintatico (linha 18): Token inesperado write. Token que era esperado: 'then'. Encontrado: 'write'. ***
+*** Erro Sintático (linha 19): Comando invalido ou inesperado. Encontrado: 'else'. ***
+     if (a%2 == 0) write ("Par"); 
+
+*** Erro Sintatico (linha 20): Comando invalido ou inesperado. Encontrado: 'EOF'. ***
+*** Erro Sintatico (linha 20): Token inesperado EOF. Token que era esperado:'end'. Encontrado: 'EOF' ***
+*** Erro Sintatico (linha 21): Token inesperado EOF. Token que era esperado:'end'. Encontrado: 'EOF'. ***
+     else write ("Impar");

@@ -1,17 +1,21 @@
-program
- a, aux : int;
- b : float
- begin
- b = 0;
- read (a);
- read(b);
- if (a>b) then
- aux = b;
- b = a;
- a = aux
- end;
- write(a);
- write(b);
+  program teste3
 
- if (a%2 == 0) write ("Par);
- else write ("Impar");
+  begin 
+  a, aux = int; 
+  b = float; 
+ 
+     b = 0; 
+     read (a); 
+     read(b); 
+     if (a>b) then 
+       aux = b; 
+       b = a; 
+       a = aux 
+     end; 
+     write(a); 
+     write(b); 
+      
+     if (a%2 == 0) then write ("Par") 
+     else write ("Impar")
+     end
+  end.

@@ -2,7 +2,7 @@ public class CharConst extends Token {
     public final char value;
 
     public CharConst(char value) {
-        super(Tag.CHAR_CONST);
+        super(Tag.CHAR);
         this.value = value;
     }
 

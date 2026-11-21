@@ -1,0 +1,28 @@
+{* Teste 7: fatorial de um numero entre 0 e 12 *}
+program fatorial
+begin
+   n, i, fat, x2 = int;
+   resp = char;
+   write("Digite um numero: ");
+   read(n);
+   if (n < 0) || (n > 12) then
+      write("Numero fora do intervalo")
+   else
+      fat = 1;
+      i = 1;
+      while (i <= n)
+
+*** Erro Sintatico (linha 14): Token inesperado fat. Token que era esperado:'do'. Encontrado: 'fat'. ***
+         fat = fat * i;
+      
+         i = i + 1;
+*** Erro Sintatico (linha 16): Comando invalido ou inesperado. Encontrado: 'end'. ***
+      end;
+*** Erro Sintatico (linha 17): Token inesperado (. Token que era esperado: '='. Encontrado: '('. ***
+      Write(fat)
+   end;
+   resp = 's';
+   fat = fat / 2;
+   resp = n
+*** Erro Sintatico (linha 22): Token inesperado EOF. Token que era esperado:'.'. Encontrado: 'EOF'. ***
+end

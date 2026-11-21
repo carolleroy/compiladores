@@ -1,3 +1,6 @@
+// Sublasse que identifica strings entre aspas duplas,
+// ela guarda o texto sem aspas em value
+
 public class Literal extends Token {
     public final String value;
 

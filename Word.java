@@ -1,3 +1,6 @@
+// Subclasse, usada para palavras reservadas, identificadores 
+// e operadores compostos (&&, ||, ==, !=, <=, >=).
+
 public class Word extends Token {
     private String lexema = "";
 

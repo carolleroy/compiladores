@@ -1,0 +1,36 @@
+*** Erro Sintatico (Linha 1): Token inesperado programa. Token que era esperado: 256. Encontrado: 'programa'. ***
+programa teste1 
+
+{*Calculo de perimetro e area*}   
+ 
+ *** Erro Sintatico (linha 4): Token inesperado base. Token que era esperado:'begin'. Encontrado: 'base'. ***
+ *** Erro Sintatico (linha 5): Token inesperado :. Token que era esperado: '='. Encontrado: ':'. ***
+   base, altura : float; 
+
+*** Erro Sintatico (linha 6): Esperado ',' ou '='. Encontrado: ':'. ***
+   perimetro : float; 
+
+*** Erro Sintatico (linha 7): Token inesperado is. Token que era esperado: '='. Encontrado: 'is'. ***
+   area, a1 is float; 
+ 
+begin 
+ 
+*** Erro Sintatico (linha 9): Esperado ',' ou '='. Encontrado: '('. ***
+  Write("Entre com a altura do retangulo:"); 
+  read(altura); 
+  write("Entre com a base do retangulo:"); 
+  read(base); 
+ 
+  area = base * altura; 
+  perimetro = 2*base + 2*altura; 
+ 
+
+*** Erro Sintatico (linha 18): Token inesperado "Area: ". Token que era esperado: '('. Encontrado: '"Area: "'. ***
+*** Erro Sintatico (linha 18): Token inesperado ;. Token que era esperado: ')'. Encontrado: ';'. ***
+  write "Area: "; 
+  write (area); 
+  write ("Perimetro: "); 
+  write (area); 
+ 
+*** Erro Sintatico (linha 24): Comando invalido ou inesperado. Encontrado: 'end'. ***
+end.

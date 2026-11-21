@@ -1,0 +1,24 @@
+ program teste2  
+ 
+ *** Erro Sintatico (linha 3): Token inesperado a. Token que era esperado: 'begin'. Encontrado: 'a'. ***
+ *** Erro Sintatico (linha 4): Token inesperado :. Token que era esperado: '='. Encontrado: ':'. ***
+     a, b, c1:int; 
+
+*** Erro Sintatico (linha 5): Token inesperado :. Token que era esperado: '='. Encontrado: ':'. ***
+     d, _var: float; 
+ 
+  teste2 = 1; 
+
+*** Erro Sintatico (linha 8): Token inesperado (. Token que era esperado: '='. Encontrado: '('. ***
+  Read (a); 
+
+  b = a * a; 
+  c = b + a/2 * (35/b); 
+  write (c);
+
+*** Erro Sintatico (linha 12): Token inesperado :. Token que era esperado: '='. Encontrado: ':'. ***
+  val := 34.0; 
+
+  c = val + 2.2 + a; 
+  write (val) 
+end. 

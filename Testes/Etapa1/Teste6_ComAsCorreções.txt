@@ -1,0 +1,31 @@
+{* Teste 6: media de tres notas de 10 alunos *}
+program media
+begin
+   n1, n2, n3 : float;
+   media = float;
+   cont = int;
+   situacao = char;
+   cont = 0;
+   repeat
+      write("Digite as tres notas: ");
+      read(n1);
+      read(n2);
+      read(n3)
+      media = (n1 + n2 + n3) / 3;
+
+*** Erro lexico (linha 15): constante real mal formada. ***
+      if (media >= 6.) then
+
+         situacao = 'A';
+      else
+         situacao = 1
+      end;
+  
+*** Erro lexico (linha 20): literal nao fechado. ***
+      write("Situacao: );
+    
+      write(situacao);
+      total = total + media;
+      cont = cont + 1
+   until cont == 10
+end.

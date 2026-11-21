@@ -1,0 +1,19 @@
+  a, aux : int; 
+  b : float 
+ 
+  begin 
+     b = 0; 
+     read (a); 
+     read(b); 
+     if (a>b) then 
+       aux = b; 
+       b = a; 
+       a = aux 
+     end; 
+     write(a); 
+     write(b); 
+      
+*** Erro lexico (linha 16): literal nao fechado. ***
+     if (a%2 == 0) write ("Par); 
+     
+     else write ("Impar");

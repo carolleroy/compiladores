@@ -1,0 +1,35 @@
+{* Teste do meu compilador *} 
+program teste5 
+    a, b, c, maior : int; 
+    opc : int; 
+begin 
+    repeat 
+        write("A: "); 
+        read(a); 
+        write("B: "); 
+        read(b); 
+        write("C: "); 
+        read(c); 
+
+        if ( (a>b) && (a>c)  ) end 
+            maior = a 
+
+        else  
+            if (b>c) then 
+                maior = b; 
+            else  
+                maior = c 
+            end 
+        end; 
+
+*** Erro lexico (linha 24): literal nao fechado. ***
+        write("Maior valor: ""); 
+
+        write (maior); 
+        write (" Continuar?(S/N) "); 
+        read(outro); 
+        
+*** Erro lexico (linha 28): constante de caractere deve possuir apenas um caractere. ***
+    until (opc == 'N' || opc == 'n) 
+
+end. 

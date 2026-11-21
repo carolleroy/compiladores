@@ -14,8 +14,8 @@ public class Tag {
         DO = 267,
         REPEAT = 268,
         UNTIL = 269,
-        IN = 270,
-        OUT = 271;
+        READ = 270,
+        WRITE = 271;
 
     // Operadores compostos e especiais
     public final static int 

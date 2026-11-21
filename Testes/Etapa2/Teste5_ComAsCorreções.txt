@@ -1,0 +1,42 @@
+{* Teste do meu compilador *} 
+program teste5 
+
+*** Erro Sintatico (linha 3): Token inesperado a. Token que era esperado: 'begin'. Encontrado: 'a'. ***
+*** Erro Sintatico (linha 5): Token inesperado :. Token que era esperado: '='. Encontrado: ':'. ***
+    a, b, c, maior : int; 
+
+*** Erro Sintatico (linha 6): Esperado ',' ou '='. Encontrado: ':'. ***
+    opc : int; 
+begin 
+    repeat 
+        write("A: "); 
+        read(a); 
+        write("B: "); 
+        read(b); 
+        write("C: "); 
+        read(c); 
+
+*** Erro Sintatico (linha 16): Token inesperado end. Token que era esperado: 'then'. Encontrado: 'end'. ***
+        if ( (a>b) && (a>c)  ) end 
+            maior = a 
+
+        else  
+            if (b>c) then 
+                maior = b; 
+
+*** Erro Sintatico (linha 22): Comando invalido ou inesperado. Encontrado: 'else'. ***
+            else  
+
+                maior = c 
+            end 
+        end; 
+        write("Maior valor: "); 
+        write (maior); 
+        write (" Continuar?(S/N) "); 
+        read(outro); 
+
+*** Erro Sintatico (linha 30): Comando invalido ou inesperado. Encontrado: 'until'. ***
+*** Erro Sintatico (linha 30): Token inesperado ==. Token que era esperado: ')'. Encontrado: '=='. ***
+    until (opc == 'N' || opc == 'n') 
+
+end. 

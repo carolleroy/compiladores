@@ -1,0 +1,31 @@
+{* Teste 6: media de tres notas de 10 alunos *}
+program media
+begin
+
+*** Erro Sintatico (linha 4): Token inesperado :. Token que era esperado: '='. Encontrado: ':'. ***
+   n1, n2, n3 : float;
+   media = float;
+   cont = int;
+   situacao = char;
+   cont = 0;
+   repeat
+      write("Digite as tres notas: ");
+      read(n1);
+      read(n2);
+      read(n3)
+
+*** Erro Sintatico (linha 14): Token inesperado media. Token que era esperado: 'until'. Encontrado: 'media'. ***
+      media = (n1 + n2 + n3) / 3;
+
+      if (media >= 6.0) then
+         situacao = 'A';
+*** Erro Sintatico (linha 17): Comando invalido ou inesperado. Encontrado: 'else'. ***
+      else
+         situacao = 1
+      end;
+      write("Situacao: ");
+      write(situacao);
+      total = total + media;
+      cont = cont + 1
+   until cont == 10
+end.
